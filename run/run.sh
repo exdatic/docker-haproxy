@@ -1,5 +1,5 @@
 docker run --name lb -d \
-    -e CERTS=my.domain \
+    -e HOSTS=my.domain \
     -e EMAIL=my.mail \
     -v $PWD/data/letsencrypt:/etc/letsencrypt \
     -v $PWD/data/haproxy.cfg:/etc/haproxy/haproxy.cfg \

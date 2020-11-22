@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ -n "$CERTS" ]; then
+if [ -n "$HOSTS" ]; then
     certbot certonly --no-self-upgrade -n --text --standalone \
         --preferred-challenges http-01 \
-        -d "$CERTS" --keep --expand --agree-tos --email "$EMAIL" \
+        -d "$HOSTS" --keep --expand --agree-tos --email "$EMAIL" \
         || exit 1
 
     mkdir -p /etc/haproxy/certs

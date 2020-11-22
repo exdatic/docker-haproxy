@@ -3,7 +3,7 @@ services:
     haproxy:
         container_name: lb
         environment:
-            - CERTS=my.domain
+            - HOSTS=my.domain
             - EMAIL=my.mail
         volumes:
             - '$PWD/data/letsencrypt:/etc/letsencrypt'

@@ -19,11 +19,11 @@ docker build -t docker-haproxy-certbot:latest .
 
 ### Run container:
 
-Example of run command (replace CERTS,EMAIL values and volume paths with yours)
+Example of run command (replace HOSTS,EMAIL values and volume paths with yours)
 
 ```
 docker run --name lb -d \
-    -e CERTS=my.domain,my.other.domain \
+    -e HOSTS=my.domain,my.other.domain \
     -e EMAIL=my.email@my.domain \
     -v /srv/letsencrypt:/etc/letsencrypt \
     -v /srv/haproxycfg/haproxy.cfg:/etc/haproxy/haproxy.cfg \
@@ -44,7 +44,7 @@ services:
     haproxy:
         container_name: lb
         environment:
-            - CERTS=my.domain
+            - HOSTS=my.domain
             - EMAIL=my.mail
         volumes:
             - '$PWD/data/letsencrypt:/etc/letsencrypt'
